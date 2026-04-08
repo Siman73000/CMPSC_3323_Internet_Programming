@@ -1,43 +1,51 @@
-<h1 align="center">CMPSC 3323 Internet Programming</h1>
+<h1 align="center">CMPSC 3323 • Internet Programming</h1>
 
 <p align="center">
-  <b>Course repository for Internet Programming projects, assignments, and web development work</b>
+  <b>Coursework, labs, projects, and web programming experiments</b>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/last-commit/YOUR_USERNAME/YOUR_REPO_NAME?style=for-the-badge" />
-  <img src="https://img.shields.io/github/repo-size/YOUR_USERNAME/YOUR_REPO_NAME?style=for-the-badge" />
-  <img src="https://img.shields.io/github/languages/count/YOUR_USERNAME/YOUR_REPO_NAME?style=for-the-badge" />
-  <img src="https://img.shields.io/github/top-language/YOUR_USERNAME/YOUR_REPO_NAME?style=for-the-badge" />
-  <img src="https://img.shields.io/github/license/YOUR_USERNAME/YOUR_REPO_NAME?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Course-CMPSC%203323-2563eb?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Focus-Internet%20Programming-111827?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Built%20With-HTML%20%7C%20CSS%20%7C%20JavaScript-f59e0b?style=for-the-badge" />
+</p>
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1200&center=true&vCenter=true&width=750&lines=CMPSC+3323+Internet+Programming;Course+projects%2C+labs%2C+and+assignments;Modern+web+development+practice;Frontend+and+backend+fundamentals" alt="Typing SVG" />
 </p>
 
 ---
 
 ## Overview
 
-This repository contains my work for **CMPSC 3323 Internet Programming**.  
-It includes assignments, projects, experiments, and notes related to modern web development concepts such as:
+This repository contains my work for **CMPSC 3323 Internet Programming**.
 
-- HTML
-- CSS
-- JavaScript
-- Responsive design
-- Frontend development
-- Backend fundamentals
-- APIs
-- Version control with Git and GitHub
+It is being used to organize course assignments, labs, projects, and experiments related to building for the web. As the semester progresses, this repository will grow into a complete collection of my work in internet programming, including both foundational concepts and applied projects.
 
 ---
 
-## Course Information
+## What This Repository Covers
 
-| Item | Details |
-|---|---|
-| **Course** | CMPSC 3323 Internet Programming |
-| **Student** | YOUR_NAME |
-| **Term** | SEMESTER_TERM |
-| **School** | YOUR_SCHOOL |
+- Semantic HTML
+- CSS styling and layout
+- JavaScript programming
+- Responsive design
+- Client and server interaction
+- Web application structure
+- Git and GitHub workflow
+- General internet programming concepts
+
+---
+
+## Course Goals
+
+This repository is meant to help me:
+
+- Keep all coursework organized in one place
+- Track my progress throughout the semester
+- Document projects clearly
+- Build a stronger foundation in web development
+- Create a record of work that can also support my portfolio later
 
 ---
 
@@ -53,13 +61,24 @@ It includes assignments, projects, experiments, and notes related to modern web 
 
 ---
 
-## Repository Structure
+## Repository Progress
+
+- [x] Repository created
+- [x] README initialized
+- [ ] Labs uploaded
+- [ ] Assignments uploaded
+- [ ] Projects uploaded
+- [ ] Final course organization complete
+
+---
+
+## Planned Repository Layout
 
 ```bash
 .
+├── labs/
 ├── assignments/
 ├── projects/
-├── labs/
 ├── notes/
 ├── assets/
 └── README.md
