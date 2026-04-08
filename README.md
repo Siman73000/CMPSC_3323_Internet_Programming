@@ -62,12 +62,10 @@ This repository is meant to help me:
 ---
 
 
-## Planned Repository Layout
+## Current Repository Layout
 
 ```bash
 .
-├── labs/
-├── assignments/
-├── notes/
-├── assets/
+├── assignments/*
+├── assets/*
 └── README.md
