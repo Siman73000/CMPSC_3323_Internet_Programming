@@ -78,7 +78,6 @@ This repository is meant to help me:
 .
 ├── labs/
 ├── assignments/
-├── projects/
 ├── notes/
 ├── assets/
 └── README.md
