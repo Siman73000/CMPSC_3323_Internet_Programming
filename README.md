@@ -61,23 +61,11 @@ This repository is meant to help me:
 
 ---
 
-## Repository Progress
 
-- [x] Repository created
-- [x] README initialized
-- [ ] Labs uploaded
-- [ ] Assignments uploaded
-- [ ] Projects uploaded
-- [ ] Final course organization complete
-
----
-
-## Planned Repository Layout
+## Current Repository Layout
 
 ```bash
 .
-├── labs/
-├── assignments/
-├── notes/
-├── assets/
+├── assignments/*
+├── assets/*
 └── README.md
