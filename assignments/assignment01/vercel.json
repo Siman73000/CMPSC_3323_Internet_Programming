@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/assignments/assignment01/HamiltonSimon_AboutMe.html"
+      "destination": "/HamiltonSimon_AboutMe.html"
     }
   ]
 }
