@@ -15,12 +15,23 @@ Last Update: 04/08/2026 18:11:00
     <link rel="icon" href="./programming.png" type="image/png" />
 </head>
 <body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="#top" class="nav-brand">Simon Hamilton</a>
+
+            <div class="nav-links">
+                <a href="#classes">Classes</a>
+                <a href="#hobbies">Hobbies</a>
+                <a href="https://www.ecok.edu/" target="_blank" rel="noopener">ECU</a>
+            </div>
+        </div>
+    </nav>
     <div class="bg-wrap">
     <div class="bg-image" id="bgImage"></div>
     <div class="bg-overlay"></div>
     </div>
 
-    <section class="hero">
+    <section class="hero" id="top">
     <div class="hero-content hero-card">
         <a href="https://www.ecok.edu/" target="_blank" rel="noopener">
             <img
@@ -124,32 +135,54 @@ Last Update: 04/08/2026 18:11:00
         </div>
     </section>
 
-    <section class="section" id="hobbies">
+    <section class="section hobbies-section" id="hobbies">
     <div class="section-content">
         <h2 class="reveal-left">Hobbies</h2>
-        <ul class="unordered-list">
-            <li class="reveal-right delay-1">
-            Bush craft camping. No tent, no sleeping bag, just a tarp and flint/steel.
-            </li>
-            <li class="reveal-right delay-1">
-            Embedded Systems Engineering. I like developing firmware for model rockets and avionics.
-            </li>
-            <li class="reveal-right delay-1">
-            Music. I play lead electric guitar, classical violin, piano, mandolin, and do traditional choir.
-            </li>
-            <li class="reveal-right delay-1">
-            Operating Systems Design. My OS is functional and runs on bare-metal with a custom kernel, drivers, and UEFI or BIOS bootloader.
-            </li>
+
+        <ul class="unordered-list hobbies-list">
+        <li class="reveal-right delay-1">
+            <div>
+            <strong>Bush Craft Camping</strong>
+            <p>No tent, no sleeping bag, just a tarp and flint/steel.</p>
+            </div>
+        </li>
+
+        <li class="reveal-right delay-2">
+            <div>
+            <strong>Embedded Systems Engineering</strong>
+            <p>I like developing firmware for model rockets and avionics.</p>
+            </div>
+        </li>
+
+        <li class="reveal-right delay-3">
+            <div>
+            <strong>Music</strong>
+            <p>I play lead electric guitar, classical violin, piano, mandolin, and do traditional choir.</p>
+            </div>
+        </li>
+
+        <li class="reveal-right delay-4">
+            <div>
+            <strong>Operating Systems Design</strong>
+            <p>My OS is functional and runs on bare-metal with a custom kernel, drivers, and UEFI or BIOS bootloader.</p>
+            </div>
+        </li>
         </ul>
+        <div class="publications-shell reveal-up delay-4">
+        <div class="publications-bar">
+            <span>Publications</span>
+        </div>
         <iframe
-        id="publicationsFrame"
-        src="https://siman73000.github.io/Website-Publications/"
-        style="width: 100%; border: 0; display: block; min-height: 900px;"
-        scrolling="no"
+            id="publicationsFrame"
+            src="https://siman73000.github.io/Website-Publications/"
+            title="Publications"
+            loading="lazy"
+            style="width: 100%; border: 0; display: block; height: 45rem;"
+            scrolling="yes"
         ></iframe>
+        </div>
     </div>
     </section>
-
     <footer>
         <p>&copy; Simon Hamilton 2026</p>
     </footer>

@@ -383,3 +383,20 @@ window.addEventListener("DOMContentLoaded", () => {
         img.style.opacity = "1";
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".reveal-left, .reveal-right, .reveal-up");
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                obs.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    reveals.forEach(el => observer.observe(el));
+});
