@@ -1,0 +1,427 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: #0f0f12;
+    color: white;
+    overflow-x: hidden;
+}
+
+.bg-wrap {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.bg-image {
+    position: absolute;
+    inset: -10%;
+    background: url("https://4kwallpapers.com/images/walls/thumbs_3t/6429.png") center center / cover no-repeat;
+    transform: translateY(0px) scale(1.08);
+    will-change: transform;
+}
+
+.bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.hero,
+.section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 4rem 2rem;
+}
+
+.hero {
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content,
+.section-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.08rem;
+    line-height: 1.7;
+    max-width: 800px;
+}
+
+.section {
+    background: rgba(12, 12, 18, 0.78);
+    backdrop-filter: blur(4px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+
+.card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 1.5rem;
+}
+
+footer {
+    background: rgba(12, 12, 18, 0.78);
+    backdrop-filter: blur(4px);
+}
+
+
+.particle-avatar {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    z-index: 1;
+    cursor: pointer;
+    isolation: isolate;
+    overflow: visible;
+}
+
+.source-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 1;
+    transition: none;
+}
+
+.classes-section .section-content {
+    max-width: 1150px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-heading p {
+    margin: 0.75rem auto 0;
+    max-width: 700px;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.classes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.35rem;
+    margin-top: 2rem;
+}
+
+.course-card {
+    position: relative;
+    padding: 1.4rem;
+    border-radius: 22px;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.10),
+        rgba(255, 255, 255, 0.05)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+    overflow: hidden;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.course-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.06) 35%,
+        transparent 70%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.8s ease;
+    pointer-events: none;
+}
+
+.course-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(96, 165, 250, 0.45);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.30);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.13),
+        rgba(255, 255, 255, 0.06)
+    );
+}
+
+.course-card:hover::before {
+    transform: translateX(120%);
+}
+
+.course-top {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0.9rem;
+}
+
+.course-code {
+    display: inline-block;
+    padding: 0.38rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: #dbeafe;
+    background: rgba(59, 130, 246, 0.16);
+    border: 1px solid rgba(96, 165, 250, 0.28);
+}
+
+.course-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.7rem;
+    line-height: 1.35;
+}
+
+.course-card p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.82);
+    max-width: unset;
+}
+
+.course-card:nth-child(2n) {
+    animation-delay: 0.8s;
+}
+
+.course-card:nth-child(3n) {
+    animation-delay: 1.6s;
+}
+
+@keyframes cardFloat {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@media (max-width: 700px) {
+    .classes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-card {
+        padding: 1.2rem;
+    }
+}
+
+.particle-canvas {
+    position: absolute;
+    left: -1rem;
+    top: -1rem;
+    width: 5rem;
+    height: 5rem;
+    pointer-events: none;
+    z-index: 2;
+
+    -webkit-mask-image: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 52%,
+        rgba(0, 0, 0, 0.96) 62%,
+        rgba(0, 0, 0, 0.82) 72%,
+        rgba(0, 0, 0, 0.50) 84%,
+        rgba(0, 0, 0, 0.18) 93%,
+        transparent 100%
+    );
+    mask-image: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 52%,
+        rgba(0, 0, 0, 0.96) 62%,
+        rgba(0, 0, 0, 0.82) 72%,
+        rgba(0, 0, 0, 0.50) 84%,
+        rgba(0, 0, 0, 0.18) 93%,
+        transparent 100%
+    );
+}
+
+@keyframes spinGlow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.delay-1 { transition-delay: 0.12s; }
+.delay-2 { transition-delay: 0.24s; }
+.delay-3 { transition-delay: 0.36s; }
+.delay-4 { transition-delay: 0.48s; }
+
+.hero-subtext {
+    margin-top: 0.45rem;
+}
+
+.hero-subtext.delay-2 {
+    font-weight: bold;
+}
+
+.hero-subtext.delay-3 {
+    font-style: italic;
+}
+
+.hero-subtext.delay-4 {
+    text-decoration: underline;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-subtext-reveal-visible-delay-2 {
+    font-weight: bold;
+}
+
+.hero-subtext-reveal-visible-delay-3 {
+    font-style: italic;
+}
+
+.hero-subtext-reveal-visible-delay-4 {
+    text-decoration: underline;
+}
+
+.zoom-in {
+    opacity: 0;
+    transform: scale(0.92);
+    transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.visible {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+.hero-subtext {
+    margin: 1rem auto 0;
+}
+
+.button-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.hero-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo {
+  display: block;
+  width: min(220px, 42vw);
+  height: auto;
+  margin: 0 auto 1.5rem auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.28));
+  pointer-events: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.95rem 1.35rem;
+    border-radius: 999px;
+    text-decoration: none;
+    color: white;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.unordered-list li {
+    margin-bottom: 1rem;
+}
+
+.btn:hover {
+    background: rgba(255,255,255,0.16);
+    border-color: rgba(255,255,255,0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+    scroll-behavior: auto;
+    }
+
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .zoom-in,
+    .btn,
+    .bg-image {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    }
+}

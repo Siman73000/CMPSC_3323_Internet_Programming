@@ -1,0 +1,153 @@
+<!--
+
+Author: Simon Hamilton
+Last Update: 04/08/2026 18:11:00
+
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Me</title>
+    <meta name="description" content="Basic HTML document template">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./programming.png" type="image/png" />
+</head>
+<body>
+    <div class="bg-wrap">
+    <div class="bg-image" id="bgImage"></div>
+    <div class="bg-overlay"></div>
+    </div>
+
+    <section class="hero">
+    <div class="hero-content hero-card">
+        <a href="https://www.ecok.edu/" target="_blank" rel="noopener">
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b6/East_central_univ_logo.png"
+            alt="East Central University logo"
+            class="hero-logo reveal visible"
+            />
+        </a>
+
+        <h1 class="reveal visible delay-1">About Me</h1>
+        <div class="profile-container">
+            <div class="profile-glow"></div>
+
+            <div class="particle-avatar" id="particleAvatar">
+                <img src="./SimonHamilton.jpg" alt="Photo of Simon Hamilton" class="source-image" id="profileImage">
+                <canvas class="particle-canvas" id="particleCanvas"></canvas>
+            </div>
+        </div>
+        <p class="hero-subtext reveal visible delay-2">
+            My name is Simon Hamilton.
+        </p>
+        <p class="hero-subtext reveal visible delay-3">
+            My major is Computer Science.
+        </p>
+        <p class="hero-subtext reveal visible delay-4">
+            I am a senior.
+        </p>
+        <div class="button-row">
+        <a href="#classes" class="btn reveal visible delay-3">Classes</a>
+        <a href="#hobbies" class="btn reveal visible delay-4">Hobbies</a>
+        </div>
+    </div>
+    </section>
+
+    <section class="section classes-section" id="classes">
+        <div class="section-content">
+            <div class="section-heading">
+                <h2 class="reveal">Classes</h2>
+                <p class="reveal delay-1">
+                    This semester I am taking the following classes:
+                </p>
+            </div>
+
+            <div class="classes-grid">
+                <article class="course-card reveal delay-1">
+                    <div class="course-top">
+                        <span class="course-code">CMPSC-3323-01</span>
+                    </div>
+                    <h3>Internet Programming</h3>
+                    <p>Learn basic web development skills with tools such as HTML5, CSS3, JavaScript, and Git.</p>
+                </article>
+
+                <article class="course-card reveal delay-2">
+                    <div class="course-top">
+                        <span class="course-code">MATH-3303-01</span>
+                    </div>
+                    <h3>Calculus &amp; Analytic Geometry III</h3>
+                    <p>Cover advanced topics of differential equations, integration, and series in multiple dimensions.</p>
+                </article>
+
+                <article class="course-card reveal delay-3">
+                    <div class="course-top">
+                        <span class="course-code">CPSMA-3103-01</span>
+                    </div>
+                    <h3>Algorithm Analysis</h3>
+                    <p>Utilize discrete mathematics, graph theory, number theory, and network science to understand computer algorithms.</p>
+                </article>
+
+                <article class="course-card reveal delay-4">
+                    <div class="course-top">
+                        <span class="course-code">CMPSC-4473-01</span>
+                    </div>
+                    <h3>Theory of Programming Languages</h3>
+                    <p>Study the construction and analysis of programming languages with a focus on compiler design.</p>
+                </article>
+
+                <article class="course-card reveal delay-1">
+                    <div class="course-top">
+                        <span class="course-code">ANTH-2523-01</span>
+                    </div>
+                    <h3>Native Peoples of North America</h3>
+                    <p>Explore the cultures, histories, and contemporary issues of indigenous peoples in North America.</p>
+                </article>
+
+                <article class="course-card reveal delay-2">
+                    <div class="course-top">
+                        <span class="course-code">COMM-1113-02</span>
+                    </div>
+                    <h3>Fundamentals of Human Communication</h3>
+                    <p>Examine the principles and practices of effective verbal and nonverbal communication in various contexts.</p>
+                </article>
+
+                <article class="course-card reveal delay-3">
+                    <div class="course-top">
+                        <span class="course-code">ENG-1113-04</span>
+                    </div>
+                    <h3>Freshman Composition I</h3>
+                    <p>Develop basic writing skills and critical thinking across general areas of study.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="hobbies">
+    <div class="section-content">
+        <h2 class="reveal-left">Hobbies</h2>
+        <ul class="unordered-list">
+            <li class="reveal-right delay-1">
+            Bush craft camping. No tent, no sleeping bag, just a tarp and flint/steel.
+            </li>
+            <li class="reveal-right delay-1">
+            Embedded Systems Engineering. I like developing firmware for model rockets and avionics.
+            </li>
+            <li class="reveal-right delay-1">
+            Music. I play lead electric guitar, classical violin, piano, mandolin, and do traditional choir.
+            </li>
+            <li class="reveal-right delay-1">
+            Operating Systems Design. My OS is functional and runs on bare-metal with a custom kernel, drivers, and UEFI or BIOS bootloader.
+            </li>
+        </ul>
+        <iframe width="1000" height="600" src="https://siman73000.github.io/Website-Publications/" title="My Research Publications" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    </section>
+
+    <footer>
+        <p>&copy; Simon Hamilton 2026</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
