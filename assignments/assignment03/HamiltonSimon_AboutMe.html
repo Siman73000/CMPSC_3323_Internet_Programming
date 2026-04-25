@@ -1,0 +1,255 @@
+<!--
+
+Author: Simon Hamilton
+Last Update: 04/25/2026 13:57:00
+
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Me</title>
+    <meta name="description" content="Basic HTML document template">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./programming.png" type="image/png" />
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="#top" class="nav-brand">Simon Hamilton</a>
+
+            <div class="nav-links">
+                <a href="#classes">Classes</a>
+                <a href="#hobbies">Hobbies</a>
+                <a href="#game">Game</a>
+                <a href="https://www.ecok.edu/" target="_blank" rel="noopener">ECU</a>
+            </div>
+        </div>
+    </nav>
+    <div class="bg-wrap">
+    <div class="bg-image" id="bgImage"></div>
+    <div class="bg-overlay"></div>
+    </div>
+
+    <section class="hero" id="top">
+    <div class="hero-content hero-card">
+        <a href="https://www.ecok.edu/" target="_blank" rel="noopener">
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b6/East_central_univ_logo.png"
+            alt="East Central University logo"
+            class="hero-logo reveal visible"
+            />
+        </a>
+
+        <h1 class="reveal visible delay-1">About Me</h1>
+        <div class="profile-container">
+            <div class="profile-glow"></div>
+
+            <div class="particle-avatar" id="particleAvatar">
+                <img src="./SimonHamilton.jpg" alt="Photo of Simon Hamilton" class="source-image" id="profileImage">
+                <canvas class="particle-canvas" id="particleCanvas"></canvas>
+            </div>
+        </div>
+        <p class="hero-subtext reveal visible delay-2">
+            My name is Simon Hamilton.
+        </p>
+        <p class="hero-subtext reveal visible delay-3">
+            My major is Computer Science.
+        </p>
+        <p class="hero-subtext reveal visible delay-4">
+            I am a senior.
+        </p>
+        <div class="button-row">
+        <a href="#classes" class="btn reveal visible delay-3">Classes</a>
+        <a href="#hobbies" class="btn reveal visible delay-4">Hobbies</a>
+        </div>
+    </div>
+    </section>
+
+    <section class="section classes-section" id="classes">
+        <div class="section-content">
+            <div class="section-heading">
+                <h2 class="reveal">Classes</h2>
+                <p class="reveal delay-1">
+                    This semester I am taking the following classes:
+                </p>
+            </div>
+
+            <div class="container">
+                <div class="grid-1 reveal delay-1">
+                    <span class="course-number">CMPSC-3323-01</span>
+                    <h2>Internet Programming</h2>
+                    <p>Learn basic web development skills with tools such as HTML5, CSS3, JavaScript, and Git.</p>
+                </div>
+
+                <div class="grid-2 reveal delay-2">
+                    <span class="course-number">MATH-3303-01</span>
+                    <h2>Calculus &amp; Analytic Geometry III</h2>
+                    <p>Cover advanced topics of differential equations, integration, and series in multiple dimensions.</p>
+                </div>
+
+                <div class="grid-3 reveal delay-3">
+                    <span class="course-number">CPSMA-3103-01</span>
+                    <h2>Algorithm Analysis</h2>
+                    <p>Use discrete mathematics, graph theory, number theory, and network science to understand computer algorithms.</p>
+                </div>
+
+                <div class="grid-4 reveal delay-4">
+                    <span class="course-number">CMPSC-4473-01</span>
+                    <h2>Theory of Programming Languages</h2>
+                    <p>Study the construction and analysis of programming languages with a focus on compiler design.</p>
+                </div>
+            </div>
+
+            <div class="section-heading other-classes-heading">
+                <h2 class="reveal">Other Classes</h2>
+                <p class="reveal delay-1">
+                    These are the additional courses I am taking this semester:
+                </p>
+            </div>
+
+            <div class="container other-classes-container">
+                <div class="grid-1 other-class-card reveal delay-1">
+                    <span class="course-number">ANTH-2523-01</span>
+                    <h2>Native Peoples of North America</h2>
+                    <p>Explore the cultures, histories, and contemporary issues of Indigenous peoples in North America.</p>
+                </div>
+
+                <div class="grid-2 other-class-card reveal delay-2">
+                    <span class="course-number">COMM-1113-02</span>
+                    <h2>Fundamentals of Human Communication</h2>
+                    <p>Study principles of effective verbal and nonverbal communication across personal, professional, and public settings.</p>
+                </div>
+
+                <div class="grid-3 other-class-card reveal delay-3">
+                    <span class="course-number">ENG-1113-04</span>
+                    <h2>Freshman Composition I</h2>
+                    <p>Develop college-level writing, revision, research, and critical thinking skills for academic communication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section hobbies-section" id="hobbies">
+    <div class="section-content">
+        <h2 class="reveal-left">Hobbies</h2>
+
+        <ul class="unordered-list hobbies-list">
+        <li class="reveal-right delay-1">
+            <div>
+            <strong>Bush Craft Camping</strong>
+            <p>No tent, no sleeping bag, just a tarp and flint/steel.</p>
+            </div>
+        </li>
+
+        <li class="reveal-right delay-2">
+            <div>
+            <strong>Embedded Systems Engineering</strong>
+            <p>I like developing firmware for model rockets and avionics.</p>
+            </div>
+        </li>
+
+        <li class="reveal-right delay-3">
+            <div>
+            <strong>Music</strong>
+            <p>I play lead electric guitar, classical violin, piano, mandolin, and do traditional choir.</p>
+            </div>
+        </li>
+
+        <li class="reveal-right delay-4">
+            <div>
+            <strong>Operating Systems Design</strong>
+            <p>My OS is functional and runs on bare-metal with a custom kernel, drivers, and UEFI or BIOS bootloader.</p>
+            </div>
+        </li>
+        </ul>
+        <div class="publications-shell reveal-up delay-4">
+        <div class="publications-bar">
+            <span>Publications</span>
+        </div>
+        <iframe
+            id="publicationsFrame"
+            src="https://siman73000.github.io/Website-Publications/"
+            title="Publications"
+            loading="lazy"
+            style="width: 100%; border: 0; display: block; height: 45rem;"
+            scrolling="yes"
+        ></iframe>
+        </div>
+    </div>
+    </section>
+
+
+    <section class="section game-section" id="game">
+        <div class="section-content">
+            <div class="section-heading">
+                <h2 class="reveal">Mini Game: Debug Dash Deluxe</h2>
+                <p class="reveal delay-1">
+                    Collect code tokens, dodge bugs, survive firewall zones, and use power-ups to keep your program running.
+                </p>
+            </div>
+
+            <div class="game-shell reveal-up delay-2">
+                <div class="game-header">
+                    <div>
+                        <span class="game-label">Score</span>
+                        <strong id="gameScore">0</strong>
+                    </div>
+                    <div>
+                        <span class="game-label">High Score</span>
+                        <strong id="gameHighScore">0</strong>
+                    </div>
+                    <div>
+                        <span class="game-label">Level</span>
+                        <strong id="gameLevel">1</strong>
+                    </div>
+                    <div>
+                        <span class="game-label">Lives</span>
+                        <strong id="gameLives">3</strong>
+                    </div>
+                    <div>
+                        <span class="game-label">Time</span>
+                        <strong id="gameTime">90</strong>
+                    </div>
+                    <div>
+                        <span class="game-label">Power</span>
+                        <strong id="gamePower">None</strong>
+                    </div>
+                </div>
+
+                <canvas id="debugDashCanvas" width="900" height="460" aria-label="Debug Dash Deluxe mini game"></canvas>
+
+                <div class="game-controls">
+                    <button id="startGameBtn" type="button">Start Game</button>
+                    <button id="pauseGameBtn" type="button">Pause</button>
+                    <button id="resetGameBtn" type="button">Reset</button>
+                    <p id="gameStatus">Use WASD or arrow keys to move. Press Space to dash and P to pause. Your high score is saved in this browser.</p>
+                </div>
+
+                <div class="game-help">
+                    <span><strong>{}</strong> Code tokens increase score</span>
+                    <span><strong>!</strong> Bugs damage you</span>
+                    <span><strong>SHD</strong> Blocks one hit</span>
+                    <span><strong>MAG</strong> Pulls tokens toward you</span>
+                    <span><strong>SLO</strong> Slows enemies</span>
+                    <span><strong>+</strong> Restores a life</span>
+                </div>
+
+                <div class="mobile-controls" aria-label="Mobile game controls">
+                    <button class="move-btn" data-direction="up" type="button">▲</button>
+                    <div class="mobile-controls-row">
+                        <button class="move-btn" data-direction="left" type="button">◀</button>
+                        <button class="move-btn" data-direction="down" type="button">▼</button>
+                        <button class="move-btn" data-direction="right" type="button">▶</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Simon Hamilton 2026</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
