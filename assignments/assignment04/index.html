@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Math and Algorithm Visualizer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@13.2.0/lib/browser/math.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Interactive STEM Visualization</p>
+      <h1>Math and Algorithm Visualizer</h1>
+      <p class="subtitle">
+        Graph algebra, calculus, vector calculus, and ODEs. Then switch modes to showcase
+        sorting, searching, and hashing algorithms with animated steps and pseudocode.
+      </p>
+      <div class="mode-switch" aria-label="Application mode">
+        <button id="mathModeButton" class="switch-button active" type="button">Math Graphing</button>
+        <button id="algorithmModeButton" class="switch-button" type="button">Algorithms</button>
+      </div>
+    </div>
+    <button id="themeToggle" class="ghost-button" type="button">Toggle Theme</button>
+  </header>
+
+  <main class="layout">
+    <aside id="mathControls" class="panel controls">
+      <section class="control-group">
+        <label for="mode">Graph mode</label>
+        <select id="mode">
+          <optgroup label="2D Graphing">
+            <option value="cartesian2d">2D Cartesian: y = f(x)</option>
+            <option value="parametric2d">2D Parametric: x(t), y(t)</option>
+            <option value="polar2d">2D Polar: r(θ)</option>
+            <option value="derivative2d">Derivative: f'(x)</option>
+            <option value="integral2d">Integral: ∫ f(x) dx</option>
+            <option value="vector2d">2D Vector Field</option>
+            <option value="ode2d">ODE: dy/dx = f(x, y)</option>
+          </optgroup>
+          <optgroup label="3D Graphing">
+            <option value="surface3d">3D Surface: z = f(x, y)</option>
+            <option value="parametric3d">3D Parametric Curve</option>
+            <option value="vector3d">3D Vector Field</option>
+          </optgroup>
+        </select>
+      </section>
+
+      <section id="expressionFields" class="control-group"></section>
+
+      <section class="grid-2 control-group">
+        <div>
+          <label for="xMin">x min</label>
+          <input id="xMin" type="number" step="any" value="-10" />
+        </div>
+        <div>
+          <label for="xMax">x max</label>
+          <input id="xMax" type="number" step="any" value="10" />
+        </div>
+        <div>
+          <label for="yMin">y min</label>
+          <input id="yMin" type="number" step="any" value="-10" />
+        </div>
+        <div>
+          <label for="yMax">y max</label>
+          <input id="yMax" type="number" step="any" value="10" />
+        </div>
+        <div>
+          <label for="tMin">t/θ min</label>
+          <input id="tMin" type="number" step="any" value="0" />
+        </div>
+        <div>
+          <label for="tMax">t/θ max</label>
+          <input id="tMax" type="number" step="any" value="6.283185307" />
+        </div>
+      </section>
+
+      <section class="grid-2 control-group">
+        <div>
+          <label for="resolution">Resolution</label>
+          <input id="resolution" type="number" min="20" max="250" value="120" />
+        </div>
+        <div>
+          <label for="vectorDensity">Vector density</label>
+          <input id="vectorDensity" type="number" min="5" max="25" value="14" />
+        </div>
+      </section>
+
+      <section class="grid-2 control-group ode-only hidden">
+        <div>
+          <label for="x0">Initial x₀</label>
+          <input id="x0" type="number" step="any" value="0" />
+        </div>
+        <div>
+          <label for="y0">Initial y₀</label>
+          <input id="y0" type="number" step="any" value="1" />
+        </div>
+        <div>
+          <label for="odeStep">ODE step</label>
+          <input id="odeStep" type="number" step="any" value="0.05" />
+        </div>
+      </section>
+
+      <section class="button-row">
+        <button id="graphButton" type="button">Graph</button>
+        <button id="resetButton" class="secondary-button" type="button">Reset</button>
+      </section>
+
+      <section class="examples">
+        <h2>Examples</h2>
+        <button class="example" data-mode="cartesian2d" data-f="sin(x) + 0.2*x^2">y = sin(x) + 0.2x²</button>
+        <button class="example" data-mode="derivative2d" data-f="x^3 - 3*x + sin(x)">Derivative</button>
+        <button class="example" data-mode="integral2d" data-f="exp(-x^2)">Integral of e^(-x²)</button>
+        <button class="example" data-mode="surface3d" data-f="sin(sqrt(x^2 + y^2))">3D ripple surface</button>
+        <button class="example" data-mode="vector2d" data-p="-y" data-q="x">2D rotation field</button>
+        <button class="example" data-mode="ode2d" data-f="y - x^2 + 1" data-x0="0" data-y0="0.5">ODE solution</button>
+      </section>
+    </aside>
+
+    <aside id="algorithmControls" class="panel controls hidden">
+      <section class="control-group">
+        <label for="algorithmCategory">Algorithm category</label>
+        <select id="algorithmCategory">
+          <option value="sorting">Sorting algorithms</option>
+          <option value="searching">Searching algorithms</option>
+          <option value="hashing">Hashing algorithms</option>
+        </select>
+      </section>
+
+      <section id="sortingControls" class="algorithm-control-set">
+        <div class="control-group">
+          <label for="sortAlgorithm">Sorting algorithm</label>
+          <select id="sortAlgorithm">
+            <option value="bubble">Bubble sort</option>
+            <option value="selection">Selection sort</option>
+            <option value="insertion">Insertion sort</option>
+            <option value="merge">Merge sort</option>
+            <option value="quick">Quick sort</option>
+            <option value="heap">Heap sort</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="arrayInput">Array values</label>
+          <input id="arrayInput" type="text" value="34, 8, 64, 51, 32, 21, 5, 13" />
+        </div>
+        <div class="grid-2 control-group">
+          <div>
+            <label for="arraySize">Random size</label>
+            <input id="arraySize" type="number" min="5" max="36" value="16" />
+          </div>
+          <div>
+            <label for="animationSpeed">Speed</label>
+            <input id="animationSpeed" type="range" min="30" max="800" value="180" />
+          </div>
+        </div>
+      </section>
+
+      <section id="searchingControls" class="algorithm-control-set hidden">
+        <div class="control-group">
+          <label for="searchAlgorithm">Searching algorithm</label>
+          <select id="searchAlgorithm">
+            <option value="linear">Linear search</option>
+            <option value="binary">Binary search</option>
+            <option value="jump">Jump search</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="searchArrayInput">Array values</label>
+          <input id="searchArrayInput" type="text" value="3, 7, 12, 19, 25, 31, 42, 50, 63" />
+        </div>
+        <div class="grid-2 control-group">
+          <div>
+            <label for="searchTarget">Target</label>
+            <input id="searchTarget" type="number" value="31" />
+          </div>
+          <div>
+            <label for="searchSpeed">Speed</label>
+            <input id="searchSpeed" type="range" min="30" max="800" value="230" />
+          </div>
+        </div>
+      </section>
+
+      <section id="hashingControls" class="algorithm-control-set hidden">
+        <div class="control-group">
+          <label for="hashStrategy">Collision handling</label>
+          <select id="hashStrategy">
+            <option value="chaining">Separate chaining</option>
+            <option value="linear">Open addressing: linear probing</option>
+            <option value="quadratic">Open addressing: quadratic probing</option>
+          </select>
+        </div>
+        <div class="grid-2 control-group">
+          <div>
+            <label for="hashTableSize">Table size</label>
+            <input id="hashTableSize" type="number" min="5" max="23" value="11" />
+          </div>
+          <div>
+            <label for="hashKey">Key</label>
+            <input id="hashKey" type="text" value="Ada" />
+          </div>
+          <div>
+            <label for="hashValue">Value</label>
+            <input id="hashValue" type="text" value="Lovelace" />
+          </div>
+        </div>
+      </section>
+
+      <section class="button-row algorithm-buttons">
+        <button id="runAlgorithmButton" type="button">Run</button>
+        <button id="stepAlgorithmButton" class="secondary-button" type="button">Step</button>
+        <button id="generateArrayButton" class="secondary-button" type="button">Random Array</button>
+        <button id="resetAlgorithmButton" class="secondary-button" type="button">Reset</button>
+      </section>
+
+      <section id="hashActionButtons" class="button-row hidden">
+        <button id="hashInsertButton" type="button">Insert</button>
+        <button id="hashFindButton" class="secondary-button" type="button">Find</button>
+        <button id="hashDeleteButton" class="secondary-button" type="button">Delete</button>
+        <button id="hashResetButton" class="secondary-button" type="button">Clear</button>
+      </section>
+
+      <section class="examples algorithm-examples">
+        <h2>Algorithm examples</h2>
+        <button class="algorithm-example" data-category="sorting" data-sort="quick" data-array="28, 11, 42, 7, 19, 3, 50, 31">Quick sort trace</button>
+        <button class="algorithm-example" data-category="searching" data-search="binary" data-array="4, 9, 15, 16, 23, 42, 58, 64" data-target="42">Binary search trace</button>
+        <button class="algorithm-example" data-category="hashing" data-strategy="linear">Linear probing table</button>
+      </section>
+    </aside>
+
+    <section id="mathWorkspace" class="workspace">
+      <div class="panel output-bar">
+        <div>
+          <h2 id="graphTitle">2D Cartesian Grapher</h2>
+          <p id="status">Enter a function and press Graph.</p>
+        </div>
+        <div class="legend-note">Use *, ^, sin(x), cos(x), exp(x), sqrt(x), pi, e</div>
+      </div>
+
+      <div id="graph" class="panel graph"></div>
+
+      <div class="panel help">
+        <h2>Input guide</h2>
+        <div class="help-grid">
+          <p><strong>Algebra:</strong> <code>x^2 - 4*x + 1</code></p>
+          <p><strong>Trig:</strong> <code>sin(x) + cos(2*x)</code></p>
+          <p><strong>Derivative:</strong> enter <code>f(x)</code>, the app graphs <code>f'(x)</code>.</p>
+          <p><strong>Integral:</strong> shades signed area and graphs cumulative numeric integral.</p>
+          <p><strong>Vector field:</strong> enter component functions such as <code>P=-y</code>, <code>Q=x</code>.</p>
+          <p><strong>ODE:</strong> enter <code>dy/dx = f(x,y)</code>; solved numerically using RK4.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="algorithmWorkspace" class="workspace hidden">
+      <div class="panel output-bar">
+        <div>
+          <h2 id="algorithmTitle">Sorting Algorithm Visualizer</h2>
+          <p id="algorithmStatus">Choose an algorithm and press Run or Step.</p>
+        </div>
+        <div class="legend-note">Colors show current comparison, swap, active range, or final placement.</div>
+      </div>
+
+      <div id="algorithmStage" class="panel algorithm-stage"></div>
+
+      <div class="algorithm-info-grid">
+        <div class="panel algorithm-card">
+          <h2>Pseudocode</h2>
+          <pre id="pseudocodeBlock"></pre>
+        </div>
+        <div class="panel algorithm-card">
+          <h2>Trace</h2>
+          <ol id="traceLog" class="trace-log"></ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
