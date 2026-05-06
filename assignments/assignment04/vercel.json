@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/HamiltonSimon_AboutMe.html"
+      "destination": "/index.html"
     }
   ]
 }
